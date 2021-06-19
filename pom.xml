@@ -14,12 +14,12 @@
 	<artifactId>RestAPI</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>fsmob</name>
+	<name>RestAPI</name>
 	<description>RestAPI for LongZenNguyen</description>
 
 	<properties>
 		<java.version>1.8</java.version>
-		<start-class>com.fsmob.fsmob</start-class>
+		<start-class>com.fsmob.RestAPI</start-class>
 	</properties>
 
 	<dependencies>
