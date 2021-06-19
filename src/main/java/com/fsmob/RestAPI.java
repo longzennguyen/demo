@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
-public class HDSWebSVSpringBoot_ThachBan_LongZen {
+public class RestAPI {
      //Comment  
 	public static void main(String[] args) {
-		SpringApplication.run(HDSWebSVSpringBoot_ThachBan_LongZen.class, args);
+		SpringApplication.run(RestAPI.class, args);
 		
 	}
 
