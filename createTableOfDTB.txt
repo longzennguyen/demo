@@ -1,0 +1,239 @@
+
+CREATE TABLE public.attendance
+(
+    attendanceid numeric NOT NULL,
+    studentid numeric,
+    lessonid numeric,
+    present boolean,
+    description character varying(240) COLLATE pg_catalog."default",
+    CONSTRAINT attendance_pkey PRIMARY KEY (attendanceid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.attendance
+    OWNER to postgres;
+-- Table: public.lesson
+
+-- DROP TABLE public.lesson;
+
+CREATE TABLE public.lesson
+(
+    lessonid numeric NOT NULL,
+    date date,
+    teacherid numeric,
+    subjectid numeric,
+    CONSTRAINT lesson_pkey PRIMARY KEY (lessonid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.lesson
+    OWNER to postgres;
+-- Table: public.parent
+
+-- DROP TABLE public.parent;
+
+CREATE TABLE public.parent
+(
+    parentid numeric NOT NULL,
+    fname character varying(240) COLLATE pg_catalog."default",
+    lname character varying(240) COLLATE pg_catalog."default",
+    email character varying(240) COLLATE pg_catalog."default",
+    phone character varying(240) COLLATE pg_catalog."default",
+    userid numeric,
+    dob date,
+    description character varying(240) COLLATE pg_catalog."default",
+    image character varying(240) COLLATE pg_catalog."default",
+    CONSTRAINT parent_pkey PRIMARY KEY (parentid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.parent
+    OWNER to postgres;
+-- Table: public.project_transaction
+
+-- DROP TABLE public.project_transaction;
+
+CREATE TABLE public.project_transaction
+(
+    transactionid numeric NOT NULL,
+    transactionname numeric,
+    studid character varying(240) COLLATE pg_catalog."default",
+    staffid character varying(15) COLLATE pg_catalog."default",
+    datetime timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT project_transaction_pkey PRIMARY KEY (transactionid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.project_transaction
+    OWNER to postgres;
+-- Table: public.staff
+
+-- DROP TABLE public.staff;
+
+CREATE TABLE public.staff
+(
+    staffid numeric NOT NULL,
+    fname character varying(240) COLLATE pg_catalog."default",
+    lname character varying(240) COLLATE pg_catalog."default",
+    contact character varying(15) COLLATE pg_catalog."default",
+    address character varying(240) COLLATE pg_catalog."default",
+    gender numeric(15,0),
+    CONSTRAINT staff_pkey PRIMARY KEY (staffid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.staff
+    OWNER to postgres;
+-- Table: public.staff_department
+
+-- DROP TABLE public.staff_department;
+
+CREATE TABLE public.staff_department
+(
+    staffid numeric NOT NULL,
+    courseline numeric,
+    CONSTRAINT staff_department_pkey PRIMARY KEY (staffid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.staff_department
+    OWNER to postgres;
+-- Table: public.student
+
+-- DROP TABLE public.student;
+
+CREATE TABLE public.student
+(
+    "studentID" numeric NOT NULL,
+    stfname character varying(240) COLLATE pg_catalog."default",
+    stlname character varying(240) COLLATE pg_catalog."default",
+    stcourse character varying(240) COLLATE pg_catalog."default",
+    styear numeric(4,0),
+    stcontact character varying(15) COLLATE pg_catalog."default",
+    stage numeric,
+    dob date,
+    stgender numeric,
+    "parentID" numeric,
+    rollnumber character varying(10) COLLATE pg_catalog."default",
+    image character varying(240) COLLATE pg_catalog."default",
+    email character varying(240) COLLATE pg_catalog."default",
+    phone character varying(15) COLLATE pg_catalog."default",
+    classes character varying COLLATE pg_catalog."default",
+    "fatherID" numeric,
+    "motherID" numeric,
+    CONSTRAINT student_pkey PRIMARY KEY ("studentID")
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.student
+    OWNER to postgres;
+-- Table: public.student_registration
+
+-- DROP TABLE public.student_registration;
+
+CREATE TABLE public.student_registration
+(
+    registrationid numeric NOT NULL,
+    name character varying(240) COLLATE pg_catalog."default",
+    content character varying(15) COLLATE pg_catalog."default",
+    datetime timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT student_registration_pkey PRIMARY KEY (registrationid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.student_registration
+    OWNER to postgres;
+-- Table: public.student_reports
+
+-- DROP TABLE public.student_reports;
+
+CREATE TABLE public.student_reports
+(
+    reportid numeric NOT NULL,
+    name character varying(240) COLLATE pg_catalog."default",
+    student_records numeric,
+    transactionreports numeric,
+    CONSTRAINT student_reports_pkey PRIMARY KEY (reportid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.student_reports
+    OWNER to postgres;
+-- Table: public.subject
+
+-- DROP TABLE public.subject;
+
+CREATE TABLE public.subject
+(
+    subjectid numeric NOT NULL,
+    name character varying COLLATE pg_catalog."default",
+    CONSTRAINT subject_pkey PRIMARY KEY (subjectid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.subject
+    OWNER to postgres;
+-- Table: public.teacher
+
+-- DROP TABLE public.teacher;
+
+CREATE TABLE public.teacher
+(
+    teacherid numeric NOT NULL,
+    fname character varying(240) COLLATE pg_catalog."default",
+    lname character varying(240) COLLATE pg_catalog."default",
+    phone character varying(240) COLLATE pg_catalog."default",
+    email character varying(240) COLLATE pg_catalog."default",
+    CONSTRAINT teacher_pkey PRIMARY KEY (teacherid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.teacher
+    OWNER to postgres;
+-- Table: public.teacherhavesubject
+
+-- DROP TABLE public.teacherhavesubject;
+
+CREATE TABLE public.teacherhavesubject
+(
+    teacherid numeric,
+    subjectid numeric
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.teacherhavesubject
+    OWNER to postgres;
+-- Table: public.users
+
+-- DROP TABLE public.users;
+
+CREATE TABLE public.users
+(
+    userid numeric NOT NULL,
+    username character varying(240) COLLATE pg_catalog."default",
+    password character varying(240) COLLATE pg_catalog."default",
+    email character varying(240) COLLATE pg_catalog."default",
+    phone character varying(240) COLLATE pg_catalog."default",
+    role character varying(20) COLLATE pg_catalog."default",
+    isactive boolean,
+    token character varying(240) COLLATE pg_catalog."default",
+    lastlogin timestamp with time zone DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT users_pkey PRIMARY KEY (userid)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.users
+    OWNER to postgres;
