@@ -6,7 +6,7 @@
     <groupId>org.springframework.boot</groupId>  
     <artifactId>spring-boot-starter-parent</artifactId>  
     <version>2.2.5.RELEASE</version>  
-    <relativePath/>  
+    <relativePath/> 
   </parent>  
   <groupId>com.fsmob</groupId>  
   <artifactId>RestAPI</artifactId>  
@@ -27,11 +27,7 @@
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-web</artifactId> 
     </dependency>  
-    <dependency> 
-      <groupId>org.postgresql</groupId>  
-      <artifactId>postgresql</artifactId>  
-      <scope>runtime</scope> 
-    </dependency>  
+    
     <dependency> 
       <groupId>org.springframework.boot</groupId>  
       <artifactId>spring-boot-starter-security</artifactId> 
@@ -47,11 +43,11 @@
         </exclusion> 
       </exclusions> 
     </dependency> 
-    <dependency>
-    <groupId>org.hibernate</groupId>
-    <artifactId>hibernate-c3p0</artifactId>
-    <version>5.3.6.Final</version>
-</dependency>
+    <dependency> 
+      <groupId>org.postgresql</groupId>  
+      <artifactId>postgresql</artifactId>  
+      <scope>runtime</scope> 
+    </dependency>
   </dependencies>  
   <build> 
     <plugins> 
@@ -59,36 +55,36 @@
         <groupId>org.springframework.boot</groupId>  
         <artifactId>spring-boot-maven-plugin</artifactId> 
       </plugin>  
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.16.0</version>
-        <configuration>
-          <schemaVersion>v2</schemaVersion>
-          <subscriptionId>c4997641-756e-4033-ad5a-644a64b08dac</subscriptionId>
-          <resourceGroup>FsMob_group</resourceGroup>
-          <appName>fsmo</appName>
-          <pricingTier>F1</pricingTier>
-          <region>eastasia</region>
-          <appServicePlanName>ASP-FsMobgroup-9895</appServicePlanName>
-          <appServicePlanResourceGroup>FsMob_group</appServicePlanResourceGroup>
-          <runtime>
-            <os>Windows</os>
-            <javaVersion>Java 8</javaVersion>
-            <webContainer>Java SE</webContainer>
-          </runtime>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
-      </plugin>
+      <plugin> 
+        <groupId>com.microsoft.azure</groupId>  
+        <artifactId>azure-webapp-maven-plugin</artifactId>  
+        <version>1.16.0</version>  
+        <configuration> 
+          <schemaVersion>v2</schemaVersion>  
+          <subscriptionId>c4997641-756e-4033-ad5a-644a64b08dac</subscriptionId>  
+          <resourceGroup>FsMob_group</resourceGroup>  
+          <appName>fsmo</appName>  
+          <pricingTier>F1</pricingTier>  
+          <region>eastasia</region>  
+          <appServicePlanName>ASP-FsMobgroup-9895</appServicePlanName>  
+          <appServicePlanResourceGroup>FsMob_group</appServicePlanResourceGroup>  
+          <runtime> 
+            <os>Windows</os>  
+            <javaVersion>Java 8</javaVersion>  
+            <webContainer>Java SE</webContainer> 
+          </runtime>  
+          <deployment> 
+            <resources> 
+              <resource> 
+                <directory>${project.basedir}/target</directory>  
+                <includes> 
+                  <include>*.jar</include> 
+                </includes> 
+              </resource> 
+            </resources> 
+          </deployment> 
+        </configuration> 
+      </plugin> 
     </plugins> 
   </build> 
 </project>
